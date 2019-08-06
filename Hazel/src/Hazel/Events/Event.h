@@ -3,7 +3,6 @@
 #include "hzpch.h"
 #include "Hazel/Core.h"
 
-
 // Events in Hazel are currently blocking, meaning when en event occurs
 // it immediately gets dispatched and must be dealt with right then and there
 // For the future, better strategy might be to buffer events in an event
@@ -37,22 +36,19 @@ namespace Hazel
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
 	class HAZEL_API Event
-	{
-		//friend class EventDispatcher;
-	public:
-		virtual EventType GetEventType() const = 0;
-		virtual const char* GetName() const = 0;
-		virtual int GetCategoryFlags() const = 0;
-		virtual std::string ToString() const { return GetName(); }
+	{		
+		public:
+			bool Handled = false;
 
-		inline bool IsInCategory(EventCategory category)
-		{
-			return GetCategoryFlags() & category;
-		}
+			virtual EventType GetEventType() const = 0;
+			virtual const char* GetName() const = 0;
+			virtual int GetCategoryFlags() const = 0;
+			virtual std::string ToString() const { return GetName(); }
 
-	protected:
-		bool m_Handled = false;
-
+			inline bool IsInCategory(EventCategory category)
+			{
+				return GetCategoryFlags() & category;
+			}
 	};
 
 	class EventDispatcher
