@@ -18,6 +18,9 @@ project "Hazel"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hzpch.h"
+	pchsource "Hazel/src/hzpch.cpp" -- for visual studio only - create option.. gonna be ignored for other platforms
+
 	files 
 	{
 		"%{prj.name}/src/**.h",

@@ -1,9 +1,8 @@
 #pragma once
 
+#include "hzpch.h"
 #include "Hazel/Core.h"
 
-#include <string>
-#include <functional>
 
 // Events in Hazel are currently blocking, meaning when en event occurs
 // it immediately gets dispatched and must be dealt with right then and there
