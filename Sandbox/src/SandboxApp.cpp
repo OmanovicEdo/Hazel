@@ -22,6 +22,7 @@ public:
 	{
 		auto layer = new ExampleLayer();
 		PushLayer(layer);
+		PushOverlay(new Hazel::ImGuiLayer());
 	}
 
 	~Sandbox() {}
