@@ -63,9 +63,9 @@ namespace Hazel {
 			//auto [x, y] = Input::GetMousePosition();
 			//HZ_CORE_TRACE("{0}, {1}", x, y);
 
-			auto state = Input::IsKeyPressed((int)('a'));
-			if(state)
-				HZ_CORE_TRACE("a PRESSED");
+			//auto state = Input::IsKeyPressed((int)('a'));
+			//if(state)
+				//HZ_CORE_TRACE("a PRESSED");
 
 			m_Window->OnUpdate();
 		}
