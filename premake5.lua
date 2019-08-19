@@ -20,7 +20,7 @@ IncludeDir["glm"] = "Hazel/vendor/glm"
 
 include "Hazel/vendor/GLFW" --will include premake5.lua from glfw folder here.. will copy glfw project (static lib) here
 include "Hazel/vendor/Glad"
-include "Hazel/vendor/imgui"
+include "Hazel/vendor/imgui" --will include premake5.lua
 
 project "Hazel"
 	location "Hazel"
@@ -111,14 +111,15 @@ project "Sandbox"
 	{
 		"Hazel/vendor/spdlog/include",
 		"Hazel/src",
-		"Hazel/vendor/glm"
+		"Hazel/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
 	{
-		"Hazel"
+		"Hazel"		
 	}
-
+	
 	filter "system:windows"		
 		systemversion "latest"
 
